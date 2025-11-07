@@ -1,9 +1,10 @@
 module symtab 
     use, intrinsic :: iso_fortran_env, only: dw => real64
+    use utils
     implicit none
     private
 
-    public :: Vars, new_symtab, symtab_add, symtab_lookup, symtab_print
+    public :: Vars, new_symtab, symtab_add, symtab_lookup, symtab_print, symtab_from_string
     type Vars
         character(len=32), allocatable :: nam(:)
         real(kind=dw), allocatable    :: value(:)
@@ -56,6 +57,40 @@ contains
         end if
     end subroutine symtab_add
 
+    ! INSERT ALTERNATIVE
+    ! the string must have the form
+    ! ident=number
+    ! comma is the separator
+    ! equal is the assignator
+    ! ident=number;ident=number  <- no spaces
+    subroutine symtab_from_string(v, schars)
+        implicit none
+        type(Vars), intent(inout) :: v
+        character(len=*), intent(in) :: schars
+        character(len=1) :: sep, asignator
+        integer :: i, sizev
+        character(len=:), allocatable :: tmpvars(:)
+        character(len=:), allocatable :: tmp(:)
+        real(kind=8) :: val
+        integer :: ios
+        val = 0.0d0
+        sep = ";"
+        asignator = "="
+
+        tmpvars = string_to_array(schars, sep)
+        sizev = size(tmpvars)
+
+        do i = 1, sizev
+            tmp = string_to_array(tmpvars(i), asignator)
+            read(tmp(2), *, iostat=ios) val
+            if (ios /= 0) then
+                val = 0.0d0
+            end if
+            call symtab_add(v, tmp(1), val)
+        end do
+    end subroutine symtab_from_string
+
+
     ! SEARCH
     function symtab_lookup(v, ident) result(value)
         implicit none
@@ -85,5 +120,6 @@ contains
             write(*,'(A,1X,F12.6)') trim(v%nam(i)//" ="), v%value(i)
         end do
     end subroutine symtab_print
+
 
 end module symtab
