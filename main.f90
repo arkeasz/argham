@@ -12,8 +12,8 @@ program calculator
     type(ASTNode), pointer :: root
     type(Vars), pointer :: v 
 
-    variables = "x=4.5;y=1.0"
-    eq = "4x + 89y"
+    variables = "x=2;y=3"
+    eq = "(0.5-x)^(1/3)"
     p = new_parser(eq)
     v => new_symtab()
     call tokenizer(p)

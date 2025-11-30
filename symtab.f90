@@ -76,12 +76,11 @@ contains
         val = 0.0d0
         sep = ";"
         asignator = "="
-
-        tmpvars = string_to_array(schars, sep)
+        tmpvars = string_to_array(trim(schars), sep)
         sizev = size(tmpvars)
 
         do i = 1, sizev
-            tmp = string_to_array(tmpvars(i), asignator)
+            tmp = string_to_array(trim(tmpvars(i)), asignator)
             read(tmp(2), *, iostat=ios) val
             if (ios /= 0) then
                 val = 0.0d0
