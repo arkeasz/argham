@@ -19,7 +19,7 @@ Add this to your `fpm.toml`:
 ```toml
 [dependencies]
 argham = { git = "https://github.com/arkeasz/argham.git" }
-
+```
 ### Future Features
 
 * Function support
