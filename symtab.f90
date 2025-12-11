@@ -1,6 +1,6 @@
-module symtab 
+module argham_symtab 
     use, intrinsic :: iso_fortran_env, only: dw => real64
-    use utils
+    use argham_utils
     implicit none
     private
 
@@ -121,4 +121,4 @@ contains
     end subroutine symtab_print
 
 
-end module symtab
+end module argham_symtab

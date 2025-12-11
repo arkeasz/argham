@@ -1,4 +1,4 @@
-module tokens
+module argham_tokens
     implicit none
     private
     public :: tokenize
@@ -14,8 +14,8 @@ module tokens
     
 contains
     subroutine tokenize(arr, arr_token, ntoks)
-        use utils
-        use ansi_colors
+        use argham_utils
+        use argham_ansi_colors
         implicit none
         character(len=1), intent(in) :: arr(:)
         character(len=1024), allocatable :: temp(:,:)
@@ -198,4 +198,4 @@ contains
         end do 
 
     end subroutine tokenize
-end module tokens
+end module argham_tokens

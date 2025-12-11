@@ -14,3 +14,6 @@ name = "argham"
 source-dir = "."
 main = "main.f90"
 
+[build]
+module-naming = true
+module-prefix = "argham"
