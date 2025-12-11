@@ -1,4 +1,4 @@
-module argham_utils
+module argham__utils
     use, intrinsic :: iso_fortran_env, only : dw => real64
     use, intrinsic :: ieee_arithmetic
     implicit none
@@ -104,4 +104,4 @@ contains
             ok = .true.
         end if
     end function is_even
-end module argham_utils
+end module argham__utils

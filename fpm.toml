@@ -6,14 +6,14 @@ description = "Symbolic calculator and recursive descent parser written in Fortr
 homepage = "https://github.com/arkeasz/argham"
 
 [library]
-source-dir = "."          
-include-dir = "."         
+source-dir = "src"          
 
 [[executable]]
 name = "argham"
-source-dir = "."
+source-dir = "app"
 main = "main.f90"
 
 [build]
+auto-executables = false
+auto-tests = false
 module-naming = true
-module-prefix = "argham"

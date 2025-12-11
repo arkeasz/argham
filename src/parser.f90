@@ -1,4 +1,4 @@
-module class_parser
+module argham__class_parser
     ! Input: 4x  + 3
     ! Note: 4x has an implicit multiplication
     ! Tokens:  
@@ -43,9 +43,9 @@ contains
     end subroutine print_eq
 
     subroutine tokenizer(this)
-        use argham_utils
-        use argham_tokens
-        use argham_ast
+        use argham__utils
+        use argham__tokens
+        use argham__ast
         implicit none
         type(Parser), intent(inout) :: this
         character, allocatable :: arr(:)
@@ -79,7 +79,7 @@ contains
     ! unary - has precedence over binary - and +
     ! ^ is right associative while all other binary operators are left associative.
     subroutine parse(root, p)
-        use argham_ast
+        use argham__ast
         implicit none
         ! wherea
         ! tok(1,i) = lexemes
@@ -97,7 +97,7 @@ contains
 
     ! E -> T {("+" | "-") T}
     function parse_E(p) result(node)
-        use argham_ast
+        use argham__ast
         implicit none
         type(Parser), intent(inout) :: p
         type(ASTNode), pointer :: node, left, right
@@ -127,7 +127,7 @@ contains
 
     ! T -> F {("*" | "/") F}
     recursive function parse_T(p) result(node)
-        use argham_ast
+        use argham__ast
         implicit none
         type(Parser), intent(inout) :: p
         type(ASTNode), pointer :: node, left, right
@@ -154,7 +154,7 @@ contains
 
     ! F -> P ["^" F]
     recursive function parse_F(p) result(node)
-        use argham_ast
+        use argham__ast
         implicit none
         type(Parser), intent(inout) :: p
         type(ASTNode), pointer :: node, left, right
@@ -176,7 +176,7 @@ contains
 
     ! P -> v | "(" E ")" | "-" T
     recursive function parse_P(p) result(node)
-        use argham_ast
+        use argham__ast
         implicit none
         type(Parser), intent(inout) :: p
         type(ASTNode), pointer :: node
@@ -253,5 +253,5 @@ contains
             lexem = adjustl(p%tok(1, p%pos))
         end if
     end function get_lexem
-end module class_parser
+end module argham__class_parser
 

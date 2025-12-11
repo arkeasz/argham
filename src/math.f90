@@ -1,5 +1,5 @@
-module argham_math 
-    use argham_ansi_colors
+module argham__math 
+    use argham__ansi_colors
     use, intrinsic :: iso_fortran_env, only : dw => real64
     implicit none
     private
@@ -31,4 +31,4 @@ contains
             res = n*factorial(n - 1.0_dw) 
         end if
     end function factorial
-end module argham_math 
+end module argham__math 

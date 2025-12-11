@@ -1,4 +1,4 @@
-module argham_ast
+module argham__ast
   implicit none
   private
   public :: ASTNode, NODE_NUM, NODE_IDENT, NODE_OP, NODE_FUNC
@@ -148,4 +148,4 @@ contains
     end select
   end subroutine print_tree
 
-end module argham_ast
+end module argham__ast

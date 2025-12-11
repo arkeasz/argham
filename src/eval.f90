@@ -1,8 +1,8 @@
-module argham_evaluator
-    use argham_ast
-    use argham_math
-    use argham_utils
-    use argham_symtab
+module argham__evaluator
+    use argham__ast
+    use argham__math
+    use argham__utils
+    use argham__symtab
     use, intrinsic :: iso_fortran_env, only : dw => real64
     use, intrinsic :: ieee_arithmetic
     implicit none
@@ -144,4 +144,4 @@ contains
   end function eval
 
 
-end module argham_evaluator
+end module argham__evaluator

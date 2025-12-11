@@ -1,4 +1,4 @@
-module argham_ansi_colors
+module argham__ansi_colors
     implicit none
     private
     public ESC, RED_BOLD, WHITE_BOLD, RESET
@@ -6,4 +6,4 @@ module argham_ansi_colors
     character(len=*), parameter :: RED_BOLD    = ESC // "[1;31m"
     character(len=*), parameter :: WHITE_BOLD  = ESC // "[1;37m"
     character(len=*), parameter :: RESET       = ESC // "[0m"
-end module argham_ansi_colors
+end module argham__ansi_colors
