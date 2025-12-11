@@ -1,0 +1,16 @@
+name = "argham"
+version = "0.1.0"
+license = "MIT"
+author = "arkeasz"
+description = "Symbolic calculator and recursive descent parser written in Fortran"
+homepage = "https://github.com/arkeasz/argham"
+
+[library]
+source-dir = "."          
+include-dir = "."         
+
+[[executable]]
+name = "argham"
+source-dir = "."
+main = "main.f90"
+
