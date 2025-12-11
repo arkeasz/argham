@@ -10,6 +10,16 @@ The project implements a parser, an Abstract Syntax Tree (AST) generator, and an
 * Numerical evaluation with a symbol table
 * Modular Fortran implementation (`parser`, `ast`, `evaluator`, `symtab`)
 
+## Installation (using *fpm*)
+
+You can use this library as a dependency in any Fortran project that uses fpm.
+
+Add this to your `fpm.toml`:
+
+```toml
+[dependencies]
+argham = { git = "https://github.com/arkeasz/argham.git" }
+
 ### Future Features
 
 * Function support
